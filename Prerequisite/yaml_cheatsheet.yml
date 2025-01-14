@@ -1,0 +1,44 @@
+# YAML Cheat Sheet
+
+#Object
+person:
+name: "Munira Akter" #String Value
+profession: "Software Developer" #Can be used both single and double quotations.
+
+age: 26 #int
+height: !!float 6 #6.0 (TypeCasting)
+gpa: !!str 3.5 #"3.5" (TypeCasting)
+
+married: true #Boolean
+
+hobbies: # List Items
+  - Traveling
+  - Cooking
+  - Gardening
+  - Teaching
+
+skills: ["React", "Node", "AWS", "Linux"] # another way to create lists
+
+#List of Objects
+projects:
+  - name: "Membership Portal"
+    techStack: ["MERN", "CI/CD"]
+  - { name: "Wallet API", techStack: - Node
+        - Express }
+
+# long text. newline will be removed
+  description: >
+    Labore officia laborum Lorem culpa excepteur anim et. 
+    Eiusmod non quis qui tempor ea proident consectetur eiusmod 
+    ipsum. Enim consequat proident nisi nostrud ea occaecat 
+    fugiat tempor in aliquip irure do minim. Sit esse non 
+    laborum et. Minim sit non Lorem esse et quis labore 
+    reprehenderit veniam minim. Consequat consequat amet enim 
+    magna ea veniam fugiat nulla anim reprehenderit qui irure. 
+    Qui aliqua irure sit cupidatat aute commodo cillum id.
+
+ # verbatim. format will be preserved
+  signature: |
+    Aiman
+    PHHM Organization
+    email - hejes@gmail.com
