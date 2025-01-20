@@ -66,6 +66,14 @@ git remote add origin <url>   # Add a remote origin
 ssh-keygen                    # Generate SSH keys
 ssh -T git@github.com         # Test SSH authentication
 
+git stash list
+
+git stash save "stash commit"
+
+git stash pop //pop restore and delete the stash
+
+git stash apply <stash_id> //apply just restore not delete from stash history.
+
 ```
 
 ### Keywords
@@ -122,3 +130,11 @@ git merge --squash <feature_branch>
 git commit -m "squashed all feature branch commit into one commit and merge"
 
 ```
+
+### Rebase
+
+Rebase do the same thing as merge but it's change the commit history as linear approach and it's change the base branch. Rebase command only use private branch that is not shared with github. It's do with private feature branch.
+
+`git rebase <branch_name>`
+
+`git rebase -i <branch_name>`
