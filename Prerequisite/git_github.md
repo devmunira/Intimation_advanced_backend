@@ -70,23 +70,25 @@ git stash list
 
 git stash save "stash commit"
 
-git stash pop //pop restore and delete the stash
+git stash pop #pop restore and delete the stash
 
-git stash apply <stash_id> //apply just restore not delete from stash history.
+git stash apply <stash_id> #apply just restore not delete from stash history.
+
+git tag -m "v1 released" -a v1.0.0 HEAD / <commit_hash>
 
 ```
 
 ### Keywords
 
-- `origin // This is alias of full central repo links (Short Alias)`
+- `origin # This is alias of full central repo links (Short Alias)`
 
-- `upstream // Upstream is central repository means github`
+- `upstream # Upstream is central repository means github`
 
-- `downstream // Downstream is local repository means your local machine repository`
+- `downstream # Downstream is local repository means your local machine repository`
 
-- `pull // download code from github to local machine`
+- `pull # download code from github to local machine`
 
-- `push // upload code from local machine to github central repo`
+- `push # upload code from local machine to github central repo`
 
 ### Authentication
 
@@ -95,19 +97,18 @@ git stash apply <stash_id> //apply just restore not delete from stash history.
   - `git remote set-url https://<user_name>:<password><repo_url>`
 - SSH / Key Based Authentication:
 
-```
+```bash
+git remote -v # see the central repo url
 
-git remote -v // see the central repo url
+git remote remove origin # remove origin from local repo
 
-git remote remove origin // remove origin from local repo
+git remote add origin <ssh_url> # add new ssh github url to local repo
 
-git remote add origin <ssh_url> // add new ssh github url to local repo
-
-ssh-keygen //generate ssh key in local machine
+ssh-keygen #generate ssh key in local machine
 
 add public ssh key on your github account
 
-ssh -T git@github.com // check your authentication
+ssh -T git@github.com # check your authentication
 
 ```
 
@@ -120,21 +121,20 @@ ssh -T git@github.com // check your authentication
 #### Git Merge Strategy
 
 1. **Octopus Strategy:** Multiple Branch are merge into one branch.
-   ` git -s octopus <feature_branch_1> <feature_branch_2>`
+   `git -s octopus <feature_branch_1> <feature_branch_2>`
 
 2. **Merge Squash:** If feature branch have multiple commits and we directly merge this branch to another branch all commit history will be add on that branch it will load the commit history. To solve this problem we can squashed all previous commits into one commit and merge branch.
 
-```
-
+```bash
 git merge --squash <feature_branch>
 git commit -m "squashed all feature branch commit into one commit and merge"
-
 ```
 
 ### Rebase
 
 Rebase do the same thing as merge but it's change the commit history as linear approach and it's change the base branch. Rebase command only use private branch that is not shared with github. It's do with private feature branch.
 
-`git rebase <branch_name>`
-
-`git rebase -i <branch_name>`
+```bash
+git rebase <branch_name>
+git rebase -i <branch_name>
+```
